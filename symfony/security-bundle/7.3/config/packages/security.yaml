@@ -6,8 +6,8 @@ security:
     providers:
         users_in_memory: { memory: null }
     firewalls:
-        dev:
-            pattern: ^/(_profiler|_wdt|assets|build)/ # `assets` is for AssetMapper; `build` is for Webpack Encore
+        dev: # Exception for the web debug toolbar and assets (only needed if you have a broad `access_control`):
+            pattern: ^/(_profiler|_wdt|assets|build)/ # `assets` is for AssetMapper; `build` is for Webpack Encore. Regex delimiters `{}` are added automatically.
             security: false
         main:
             lazy: true
